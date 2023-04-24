@@ -10,6 +10,8 @@ type Config struct {
 	MaxRecvMsgSize    uint `json:"max_recv_msg_size" env:"GRPC_MAX_RECV_MSG_SIZE"`
 
 	Origin map[string]interface{} `json:"origin" env:"GRPC_ORIGIN"`
+
+	ForceStop bool `json:"force_stop" env:"FORCE_STOP"`
 }
 
 // Config is grpc client config.

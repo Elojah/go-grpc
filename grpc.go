@@ -47,7 +47,11 @@ func (s *Service) Dial(ctx context.Context, cfg Config) error {
 
 func (s *Service) Close(ctx context.Context) error {
 	if s.Server != nil {
-		s.Server.GracefulStop()
+		if s.config.ForceStop {
+			s.Server.Stop()
+		} else {
+			s.Server.GracefulStop()
+		}
 	}
 
 	return nil
